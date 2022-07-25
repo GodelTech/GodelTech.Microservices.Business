@@ -1,9 +1,41 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>GodelTech.Microservices.Business</PackageId>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>v.rodchenko</Authors>
+    <Company>Godel Technologies</Company>
+    <Description>Microservice initializer for GodelTech.Business.</Description>
+    <Copyright>Godel Technologies 2022</Copyright>
+    <PackageLicenseUrl>https://github.com/GodelTech/GodelTech.Microservices.Business/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/GodelTech/GodelTech.Microservices.Business/wiki</PackageProjectUrl>
+    <PackageIconUrl>https://www.gravatar.com/avatar/839234621070de51e7b9cabd5ceee8fe?s=64</PackageIconUrl>
+    <RepositoryUrl>https://github.com/GodelTech/GodelTech.Microservices.Business</RepositoryUrl>
+    <PackageTags>Microservice Business</PackageTags>
+
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+
+    <!-- XML documentation -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Source Link needs this -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- SonarQube needs this -->
+    <ProjectGuid>{00000000-0000-0000-0000-000000000010}</ProjectGuid>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="GodelTech.Data" Version="6.2.0" />
+    <PackageReference Include="GodelTech.Microservices.Core" Version="2.4.0" />
+
+    <!-- Source Link needs this -->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+  </ItemGroup>
 
 </Project>

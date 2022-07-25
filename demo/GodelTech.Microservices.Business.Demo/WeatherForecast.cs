@@ -1,3 +1,5 @@
+﻿using System;
+
 namespace GodelTech.Microservices.Business.Demo
 {
     public class WeatherForecast
