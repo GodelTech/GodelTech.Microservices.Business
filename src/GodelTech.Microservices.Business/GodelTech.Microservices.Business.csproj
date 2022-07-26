@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="GodelTech.Data" Version="6.2.0" />
+    <PackageReference Include="GodelTech.Business.AutoMapper" Version="6.2.0" />
     <PackageReference Include="GodelTech.Microservices.Core" Version="2.4.0" />
 
     <!-- Source Link needs this -->
