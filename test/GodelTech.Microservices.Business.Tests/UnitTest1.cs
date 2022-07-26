@@ -1,4 +1,4 @@
-using Xunit;
+﻿using Xunit;
 
 namespace GodelTech.Microservices.Business.Tests
 {
