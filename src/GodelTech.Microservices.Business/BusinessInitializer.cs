@@ -50,7 +50,9 @@ namespace GodelTech.Microservices.Business
         /// <typeparam name="TEditDto">The type of the T type.</typeparam>
         /// <typeparam name="TKey">The type of the T key.</typeparam>
         /// <returns>BusinessInitializer.</returns>
+#pragma warning disable S2436 // Reduce the number of generic parameters in the 'BusinessInitializer.WithService' method to no more than the 3 authorized.
         public BusinessInitializer<TStartup> WithService<TIService, TService, TDto, TAddDto, TEditDto, TKey>()
+#pragma warning restore S2436 // Reduce the number of generic parameters in the 'BusinessInitializer.WithService' method to no more than the 3 authorized.
             where TIService : class, IBusinessService<TDto, TAddDto, TEditDto, TKey>
             where TService : class, TIService
             where TDto : class, IDto<TKey>
