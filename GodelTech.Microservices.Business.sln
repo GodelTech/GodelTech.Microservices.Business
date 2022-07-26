@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{14E50D3F-FBF7-4036-8F01-10CA95B119A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4DD40C1F-6CBE-4A65-AED1-95BA405607AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodelTech.Microservices.Business", "src\GodelTech.Microservices.Business\GodelTech.Microservices.Business.csproj", "{CD44B96A-278F-48FA-AE03-29E62250CD6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodelTech.Microservices.Business.Tests", "test\GodelTech.Microservices.Business.Tests\GodelTech.Microservices.Business.Tests.csproj", "{F39E6079-364E-4791-A1F3-DAC68E2B4580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodelTech.Microservices.Business.IntegrationTests", "test\GodelTech.Microservices.Business.IntegrationTests\GodelTech.Microservices.Business.IntegrationTests.csproj", "{431CE336-271C-4306-A2FD-40CD502FAC4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{6C5CB8E3-9D44-4101-A4F4-E95B82AD7505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodelTech.Microservices.Business.Demo", "demo\GodelTech.Microservices.Business.Demo\GodelTech.Microservices.Business.Demo.csproj", "{DA297A42-DD5D-45B8-AC08-48E267A8C896}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD44B96A-278F-48FA-AE03-29E62250CD6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD44B96A-278F-48FA-AE03-29E62250CD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD44B96A-278F-48FA-AE03-29E62250CD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD44B96A-278F-48FA-AE03-29E62250CD6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39E6079-364E-4791-A1F3-DAC68E2B4580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39E6079-364E-4791-A1F3-DAC68E2B4580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39E6079-364E-4791-A1F3-DAC68E2B4580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39E6079-364E-4791-A1F3-DAC68E2B4580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431CE336-271C-4306-A2FD-40CD502FAC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431CE336-271C-4306-A2FD-40CD502FAC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431CE336-271C-4306-A2FD-40CD502FAC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431CE336-271C-4306-A2FD-40CD502FAC4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA297A42-DD5D-45B8-AC08-48E267A8C896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA297A42-DD5D-45B8-AC08-48E267A8C896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA297A42-DD5D-45B8-AC08-48E267A8C896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA297A42-DD5D-45B8-AC08-48E267A8C896}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD44B96A-278F-48FA-AE03-29E62250CD6C} = {14E50D3F-FBF7-4036-8F01-10CA95B119A7}
+		{F39E6079-364E-4791-A1F3-DAC68E2B4580} = {4DD40C1F-6CBE-4A65-AED1-95BA405607AB}
+		{431CE336-271C-4306-A2FD-40CD502FAC4F} = {4DD40C1F-6CBE-4A65-AED1-95BA405607AB}
+		{DA297A42-DD5D-45B8-AC08-48E267A8C896} = {6C5CB8E3-9D44-4101-A4F4-E95B82AD7505}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA443431-646A-486D-AD87-50B8C34ACD89}
+	EndGlobalSection
+EndGlobal
