@@ -59,6 +59,19 @@ namespace GodelTech.Microservices.Business
             where TAddDto : class
             where TEditDto : class, IDto<TKey>
         {
+            return WithService<TIService, TService>();
+        }
+
+        /// <summary>
+        /// Adds registration of Service
+        /// </summary>
+        /// <typeparam name="TIService">Interface of service.</typeparam>
+        /// <typeparam name="TService">Implementation of service.</typeparam>
+        /// <returns>BusinessInitializer.</returns>
+        public BusinessInitializer<TStartup> WithService<TIService, TService>()
+            where TIService : class
+            where TService : class, TIService
+        {
             _configureServicesList.Add(
                 services => services
                     .AddTransient<TIService, TService>()
