@@ -41,7 +41,7 @@ namespace GodelTech.Microservices.Business
         }
 
         /// <inheritdoc />
-        public void ConfigureEndpoints(IApplicationBuilder app, IWebHostEnvironment env)
+        public virtual void ConfigureEndpoints(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
         }
