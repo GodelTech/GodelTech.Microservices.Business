@@ -40,6 +40,12 @@ namespace GodelTech.Microservices.Business
 
         }
 
+        /// <inheritdoc />
+        public virtual void ConfigureEndpoints(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+
+        }
+
         /// <summary>
         /// Adds registration of Service
         /// </summary>
