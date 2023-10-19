@@ -5,6 +5,7 @@ using GodelTech.Microservices.Business.Demo;
 using GodelTech.Microservices.Business.Demo.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
@@ -17,21 +18,45 @@ namespace GodelTech.Microservices.Business.IntegrationTests
 {
     public class AppTestFixture : WebApplicationFactory<Startup>
     {
+        private bool _disposed;
+
         private readonly Guid _guid;
+        private readonly SqliteConnection _sqliteConnection;
 
         public AppTestFixture()
         {
             _guid = Guid.NewGuid();
+
+            _sqliteConnection = new SqliteConnection($"Data Source=InMemory{_guid};Mode=Memory;Cache=Shared");
+            _sqliteConnection.CreateFunction("newsequentialid", Guid.NewGuid);
+            _sqliteConnection.Open();
 
             var dbContextOptionsBuilder = new DbContextOptionsBuilder<CurrencyExchangeRateDbContext>();
 
             ConfigureDbContextOptionsBuilder(dbContextOptionsBuilder);
 
             DbContext = new CurrencyExchangeRateDbContext(dbContextOptionsBuilder.Options);
+
+            DbContext.Database.EnsureCreated();
         }
 
         public ITestOutputHelper Output { get; set; }
         public CurrencyExchangeRateDbContext DbContext { get; }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                DbContext.Dispose();
+
+                _sqliteConnection.Close();
+                _sqliteConnection.Dispose();
+
+                _disposed = true;
+            }
+
+            base.Dispose(disposing);
+        }
 
         protected override IHostBuilder CreateHostBuilder()
         {
@@ -63,7 +88,7 @@ namespace GodelTech.Microservices.Business.IntegrationTests
                                 {
                                     new KeyValuePair<string, string>(
                                         "ConnectionStrings:DefaultConnection",
-                                        $"Data Source=InMemoryDbForTesting{_guid:N};Mode=Memory;Cache=Shared"
+                                        $"Data Source=InMemory{_guid};Mode=Memory;Cache=Shared"
                                     ),
                                     new KeyValuePair<string, string>(
                                         "DataInitializerOptions:EnableDatabaseMigration",
@@ -99,7 +124,7 @@ namespace GodelTech.Microservices.Business.IntegrationTests
         private void ConfigureDbContextOptionsBuilder(DbContextOptionsBuilder builder)
         {
             builder
-                .UseInMemoryDatabase($"InMemoryDbForTesting{_guid:N}")
+                .UseSqlite(_sqliteConnection)
                 .EnableSensitiveDataLogging();
         }
     }

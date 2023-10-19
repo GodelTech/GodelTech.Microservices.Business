@@ -22,6 +22,8 @@ namespace GodelTech.Microservices.Business
         public virtual void ConfigureServices(IServiceCollection services)
         {
             // AutoMapper
+            // Stryker disable once statement
+            // ignored as in Data we also add this AutoMapper
             services.AddAutoMapper(typeof(TStartup).Assembly);
 
             // GodelTech.Business.AutoMapper

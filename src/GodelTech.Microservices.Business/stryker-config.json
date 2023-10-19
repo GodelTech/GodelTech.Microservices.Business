@@ -1,6 +1,7 @@
 {
   "stryker-config": {
     "test-projects": [
+      "../../test/GodelTech.Microservices.Business.IntegrationTests/GodelTech.Microservices.Business.IntegrationTests.csproj",
       "../../test/GodelTech.Microservices.Business.Tests/GodelTech.Microservices.Business.Tests.csproj"
     ]
   }
