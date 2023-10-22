@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GodelTech.Microservices.Business.Demo.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
@@ -18,7 +20,7 @@ namespace GodelTech.Microservices.Business.Demo.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newsequentialid()"),
-                    Name = table.Column<string>(type: "nvarchar(256)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,6 +41,7 @@ namespace GodelTech.Microservices.Business.Demo.Migrations
                 });
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
