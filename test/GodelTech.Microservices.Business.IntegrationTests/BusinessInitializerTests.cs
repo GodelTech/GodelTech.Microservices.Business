@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using GodelTech.Microservices.Business.Demo.Data;
 using GodelTech.Microservices.Business.Demo.Data.Entities;
 using GodelTech.Microservices.Business.Demo.Models.Bank;
 using Xunit;
@@ -21,8 +22,6 @@ namespace GodelTech.Microservices.Business.IntegrationTests
             {
                 Output = output
             };
-
-            Seed();
         }
 
         public void Dispose()
@@ -30,9 +29,9 @@ namespace GodelTech.Microservices.Business.IntegrationTests
             _fixture.Dispose();
         }
 
-        private void Seed()
+        private static void Seed(CurrencyExchangeRateDbContext dbContext)
         {
-            _fixture.DbContext.Set<BankEntity>().AddRange(
+            dbContext.Set<BankEntity>().AddRange(
                 new BankEntity
                 {
                     Name = "First Bank Name"
@@ -43,16 +42,18 @@ namespace GodelTech.Microservices.Business.IntegrationTests
                 }
             );
 
-            _fixture.DbContext.SaveChanges();
+            dbContext.SaveChanges();
         }
 
         [Fact]
         public async Task Configure_Success()
         {
             // Arrange
-            var expectedResult = _fixture.DbContext.Set<BankEntity>().ToList();
-
             var client = _fixture.CreateClient();
+
+            await using var dbContext = _fixture.InitializeDbContextForTest(Seed);
+
+            var expectedResult = dbContext.Set<BankEntity>().ToList();
 
             // Act
             var result = await client.GetAsync(new Uri("/banks", UriKind.Relative));
