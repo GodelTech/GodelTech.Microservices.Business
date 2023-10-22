@@ -17,10 +17,10 @@ namespace GodelTech.Microservices.Business.Demo.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("GodelTech.Microservices.Business.Demo.Data.Entities.BankEntity", b =>
                 {
@@ -31,7 +31,7 @@ namespace GodelTech.Microservices.Business.Demo.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
