@@ -34,15 +34,6 @@ namespace GodelTech.Microservices.Business.IntegrationTests
             return dbContext;
         }
 
-        public CurrencyExchangeRateDbContext InitializeDbContextForTest(Action<CurrencyExchangeRateDbContext> seed)
-        {
-            var dbContext = GetDbContext();
-
-            seed?.Invoke(dbContext);
-
-            return dbContext;
-        }
-
         protected override IHostBuilder CreateHostBuilder()
         {
             var builder = base.CreateHostBuilder();

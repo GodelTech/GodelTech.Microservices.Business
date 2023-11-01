@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using GodelTech.Microservices.Business.Demo.Data;
@@ -15,6 +16,8 @@ namespace GodelTech.Microservices.Business.IntegrationTests
     public sealed class BusinessInitializerTests : IDisposable
     {
         private readonly AppTestFixture _fixture;
+        private readonly CurrencyExchangeRateDbContext _dbContext;
+        private readonly HttpClient _client;
 
         public BusinessInitializerTests(ITestOutputHelper output)
         {
@@ -22,16 +25,24 @@ namespace GodelTech.Microservices.Business.IntegrationTests
             {
                 Output = output
             };
+
+            _dbContext = _fixture.GetDbContext();
+
+            Seed();
+
+            _client = _fixture.CreateClient();
         }
 
         public void Dispose()
         {
+            _client.Dispose();
+            _dbContext.Dispose();
             _fixture.Dispose();
         }
 
-        private static void Seed(CurrencyExchangeRateDbContext dbContext)
+        private void Seed()
         {
-            dbContext.Set<BankEntity>().AddRange(
+            _dbContext.Set<BankEntity>().AddRange(
                 new BankEntity
                 {
                     Name = "First Bank Name"
@@ -42,21 +53,17 @@ namespace GodelTech.Microservices.Business.IntegrationTests
                 }
             );
 
-            dbContext.SaveChanges();
+            _dbContext.SaveChanges();
         }
 
         [Fact]
         public async Task Configure_Success()
         {
             // Arrange
-            var client = _fixture.CreateClient();
-
-            await using var dbContext = _fixture.InitializeDbContextForTest(Seed);
-
-            var expectedResult = dbContext.Set<BankEntity>().ToList();
+            var expectedResult = _dbContext.Set<BankEntity>().ToList();
 
             // Act
-            var result = await client.GetAsync(new Uri("/banks", UriKind.Relative));
+            var result = await _client.GetAsync(new Uri("/banks", UriKind.Relative));
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, result.StatusCode);
