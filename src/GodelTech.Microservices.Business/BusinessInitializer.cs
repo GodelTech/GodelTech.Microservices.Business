@@ -16,7 +16,7 @@ namespace GodelTech.Microservices.Business
     public class BusinessInitializer<TStartup> : IMicroserviceInitializer
         where TStartup : class
     {
-        private readonly IList<Action<IServiceCollection>> _configureServicesList = new List<Action<IServiceCollection>>();
+        private readonly List<Action<IServiceCollection>> _configureServicesList = new List<Action<IServiceCollection>>();
 
         /// <inheritdoc />
         public virtual void ConfigureServices(IServiceCollection services)
