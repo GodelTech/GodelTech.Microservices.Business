@@ -45,7 +45,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="GodelTech.Business.AutoMapper" Version="8.0.0" />
-    <PackageReference Include="GodelTech.Microservices.Core" Version="8.0.0" />
+    <PackageReference Include="GodelTech.Microservices.Core" Version="8.0.1" />
 
     <!-- Source Link needs this -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
