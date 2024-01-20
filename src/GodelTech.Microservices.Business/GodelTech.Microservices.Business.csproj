@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <PackageId>GodelTech.Microservices.Business</PackageId>
     <VersionPrefix>1.0.0</VersionPrefix>
     <Authors>v.rodchenko</Authors>
@@ -31,11 +31,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="GodelTech.Business.AutoMapper" Version="7.0.0" />
-    <PackageReference Include="GodelTech.Microservices.Core" Version="3.0.1" />
+    <PackageReference Include="GodelTech.Business.AutoMapper" Version="8.0.0" />
+    <PackageReference Include="GodelTech.Microservices.Core" Version="8.0.1" />
 
     <!-- Source Link needs this -->
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
