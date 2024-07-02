@@ -25,6 +25,7 @@ namespace GodelTech.Microservices.Business.Demo.Data.Configurations
             builder.HasKey(x => x.Id);
 
             // Properties
+            builder.Property(x => x.Id).ValueGeneratedNever();
             builder.Property(x => x.AlphabeticCode).HasColumnType("nvarchar(3)").IsRequired();
         }
     }
