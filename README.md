@@ -6,5 +6,5 @@ yield return new BusinessInitializer<Startup>()
     .WithService<IBankService, BankService, BankDto, IBankAddDto, IBankEditDto, Guid>();
 ```
 
-# License
+## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
